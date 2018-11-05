@@ -65,8 +65,6 @@ export default class FormPage extends Component {
       'Lubricentro',
       'Otros'
     ];
-
-    console.log(localities);
   }
 
   searchLocalityName = searchWord => {
