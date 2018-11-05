@@ -1,0 +1,51 @@
+.container {
+  height: 150px;
+  background-color: #eaebeb;
+}
+
+.smallContainer {
+  height: 0px;
+  /* background-color: #eaebeb; */
+}
+
+.barImage {
+  width: 100%;
+  /* height: auto; */
+}
+
+.titleWrapper {
+  text-align: center;
+  align-content: center;
+  margin-top: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 22px;
+  color: black;
+  font-family: 'BoschSans LightItalic';
+}
+
+.indicatorsWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.indicator {
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: black;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.inactiveIndicator {
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: #b1b1b1;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}

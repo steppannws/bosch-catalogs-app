@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.wrapper {
+  /* height: 100%; */
+  flex-direction: column;
+  background-color: white;
+  display: flex;
+  /* height: 600px; */
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: row;
+  /* background-color: aqua; */
+  /* height: 80%; */
+  padding: 100px;
+}
+
+.bottomWrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.logoWrapper {
+}
+
+.logo {
+  width: 180px;
+}
+
+.buttonsWrapper {
+  margin-right: 40px;
+  display: flex;
+  flex-direction: row;
+}
