@@ -2,7 +2,9 @@
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
+
 /* @import '~@fortawesome/fontawesome-free/css/all.css'; */
+
 /* import 'simple-keyboard/build/css/index.css'; */
 @import '~simple-keyboard/build/css/index.css';
 @import '~react-touch-screen-keyboard/lib/Keyboard.css';
@@ -10,6 +12,7 @@
 @font-face {
   font-family: 'BoschSans Regular';
   font-style: normal;
+
   /* font-weight: 400; */
   src: url('./static/fonts/BoschSans-Regular.ttf'); /* IE9 Compat Modes */
   src: local('BoschSans Regular'), local('BoschSansRegular'),
@@ -19,6 +22,7 @@
 @font-face {
   font-family: 'BoschSans LightItalic';
   font-style: normal;
+
   /* font-weight: 400; */
   src: url('./static/fonts/BoschSans-LightItalic.ttf'); /* IE9 Compat Modes */
   src: local('BoschSans LightItalic'), local('BoschSans-LightItalic'),
@@ -28,6 +32,7 @@
 @font-face {
   font-family: 'BoschSans Light';
   font-style: normal;
+
   /* font-weight: 400; */
   src: url('./static/fonts/BoschSans-Light.ttf'); /* IE9 Compat Modes */
   src: local('BoschSans Light'), local('BoschSans-Light'),
@@ -37,15 +42,19 @@
 body {
   /* position: relative; */
   display: flex;
+
   /* color: white; */
 
   /* height: 100vh; */
+
   /* background-color: #232c39; */
+
   /* background-image: linear-gradient(
     90deg,
     rgba(214, 10, 49, 1) 30%,
     rgba(178, 15, 116, 1)
   ); */
+
   /* font-family: Arial, Helvetica, Helvetica Neue, serif; */
   font-family: 'BoschSans Regular';
   overflow-y: hidden;
@@ -94,5 +103,6 @@ a:hover {
 .switch-wrapper > div {
   width: 100%;
   height: 100%;
+
   /* position: absolute; */
 }

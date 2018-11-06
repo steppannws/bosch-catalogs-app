@@ -2,7 +2,13 @@
 function multi_attach_mail($to, $subject, $message, $senderMail, $senderName, $files){
 
     $from = $senderName." <".$senderMail.">"; 
-    $headers = "From: $from";
+    // $headers = "From: $from";
+    $headers .= "Reply-To: Bosch <no-replay@bosch.com.ar>"; 
+    $headers .= "From: Bosch <no-replay@bosch.com.ar>";  
+    $headers .= "Return-Path: Bosch <no-replay@bosch.com.ar>"; 
+    $headers .= "Organization: Boshch";
+    $headers .= "X-Priority: 3";
+    $headers .= "X-Mailer: PHP". phpversion() ."" ;
 
     // boundary 
     $semi_rand = md5(time()); 
@@ -45,8 +51,8 @@ function multi_attach_mail($to, $subject, $message, $senderMail, $senderName, $f
 }
 
 //email variables
-// $to = 'steppannws@gmail.com';
-$to = 'stepan.nikulenko@mediamonks.com';
+$to = 'steppannws@gmail.com';
+// $to = 'stepan.nikulenko@mediamonks.com';
 $from = 'no-replay@bosch.com.ar';
 $from_name = 'Bosch';
 
@@ -72,6 +78,6 @@ $html_content = '<h1>Le enviamos el catálogo solicitado. Muchas gracias.'.$name
 $send_email = multi_attach_mail($to,$subject,$html_content,$from,$from_name,$files);
 
 //print message after email sent
-echo $send_email?"success":"error";
+echo $send_email?"{success: true}":"{success: false}";
 
 ?>

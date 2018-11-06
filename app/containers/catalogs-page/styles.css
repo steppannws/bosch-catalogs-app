@@ -15,7 +15,9 @@
 .formWrapper {
   display: flex;
   flex-direction: row;
+
   /* background-color: aqua; */
+
   /* height: 80%; */
   padding: 100px;
 }
@@ -27,7 +29,7 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  bottom: 0px;
+  bottom: 0;
   margin-left: 20px;
   margin-bottom: 15px;
 }
