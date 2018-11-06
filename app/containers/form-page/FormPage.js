@@ -115,10 +115,10 @@ export default class FormPage extends Component {
       province,
       locality,
       phone,
-      catalogs
+      catalogs: catalogs.toString()
     };
 
-    fetch('http://dooplerstudio.com/step/bosch/email-sender.php', {
+    fetch('http://dooplerstudio.com/step/bosch/sendcatalogue.php', {
       method: 'post',
       body: JSON.stringify(formData)
     });
