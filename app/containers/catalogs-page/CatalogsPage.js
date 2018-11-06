@@ -22,58 +22,63 @@ export default class CatalogsPage extends Component {
     this.catalogsImages = [
       {
         id: 0,
-        name: 'Centro de Capacitación',
+        name: 'Rotating Machines',
         path: './static/images/catalogs/1.jpg'
       },
       {
         id: 1,
+        name: 'Centro de Capacitación',
+        path: './static/images/catalogs/1.jpg'
+      },
+      {
+        id: 2,
         name: 'Superprofecionales',
         path: './static/images/catalogs/2.jpg'
       },
       {
-        id: 2,
+        id: 3,
         name: 'Pastillas de Freno',
         path: './static/images/catalogs/3.jpg'
       },
-      { id: 3, name: 'Muscletools', path: './static/images/catalogs/4.jpg' },
+      { id: 4, name: 'Muscletools', path: './static/images/catalogs/4.jpg' },
       {
-        id: 4,
+        id: 5,
         name: 'Repustos de Motor',
         path: './static/images/catalogs/5.jpg'
       },
-      { id: 5, name: 'Lámparas', path: './static/images/catalogs/6.jpg' },
+      { id: 6, name: 'Lámparas', path: './static/images/catalogs/6.jpg' },
       {
-        id: 6,
+        id: 7,
         name: 'Kit de distribución',
         path: './static/images/catalogs/7.jpg'
       },
-      { id: 7, name: 'Filtros', path: './static/images/catalogs/8.jpg' },
-      { id: 8, name: 'Escobillos', path: './static/images/catalogs/9.jpg' },
+      { id: 8, name: 'Filtros', path: './static/images/catalogs/8.jpg' },
+      { id: 9, name: 'Escobillos', path: './static/images/catalogs/9.jpg' },
       {
-        id: 9,
+        id: 10,
         name: 'Discos de freno',
         path: './static/images/catalogs/10.jpg'
       },
-      { id: 10, name: 'Diagnostics', path: './static/images/catalogs/11.jpg' },
+      { id: 11, name: 'Diagnostics', path: './static/images/catalogs/11.jpg' },
       {
-        id: 11,
+        id: 12,
         name: 'Bujías Incandenscencia',
         path: './static/images/catalogs/12.jpg'
       },
-      { id: 12, name: 'Bujías', path: './static/images/catalogs/13.jpg' },
+      { id: 13, name: 'Bujías', path: './static/images/catalogs/13.jpg' },
       {
-        id: 13,
+        id: 14,
         name: 'Bombas de combustible',
         path: './static/images/catalogs/14.jpg'
       },
       {
-        id: 14,
+        id: 15,
         name: 'Bobinas de encendio',
         path: './static/images/catalogs/15.jpg'
       },
-      { id: 15, name: 'Baterías', path: './static/images/catalogs/16.jpg' },
+      { id: 16, name: 'Baterías', path: './static/images/catalogs/16.jpg' },
       {
-        id: 16,
+        id: 17,
         name: 'Rotating Machines',
         path: './static/images/catalogs/17.jpg'
       }
