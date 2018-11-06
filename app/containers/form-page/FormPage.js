@@ -16,6 +16,14 @@ export default class FormPage extends Component {
   constructor(props) {
     super(props);
 
+    const {
+      history: {
+        location: {
+          state = {} // { catalogs = [] }
+        }
+      }
+    } = props;
+
     this.state = {
       email: '',
       name: '',
@@ -24,6 +32,7 @@ export default class FormPage extends Component {
       province: '',
       locality: '',
       phone: '',
+      catalogs: state.catalogs || [],
       showForm: true,
       inputType: '',
       selectedInputValue: '',
@@ -67,6 +76,8 @@ export default class FormPage extends Component {
     ];
   }
 
+  componentDidMount = () => {};
+
   searchLocalityName = searchWord => {
     const province = localities.find(
       province => this.state.province === province.province
@@ -81,7 +92,36 @@ export default class FormPage extends Component {
   };
 
   handleSubmit = () => {
-    //TODO: validate form
+    // TODO: validate form
+
+    console.log('SUBMIT');
+
+    const {
+      email,
+      name,
+      businessType,
+      businessName,
+      province,
+      locality,
+      phone,
+      catalogs
+    } = this.state;
+
+    const formData = {
+      email,
+      name,
+      businessType,
+      businessName,
+      province,
+      locality,
+      phone,
+      catalogs
+    };
+
+    fetch('http://dooplerstudio.com/step/bosch/email-sender.php', {
+      method: 'post',
+      body: JSON.stringify(formData)
+    });
 
     this.props.history.push('/final');
   };
@@ -225,9 +265,9 @@ export default class FormPage extends Component {
       locality,
       phone,
       inputPlaceholders,
-      showForm,
-      inputType,
-      selectedInputValue
+      showForm
+      // inputType,
+      // selectedInputValue
     } = this.state;
 
     return (
