@@ -47,7 +47,7 @@
 	
 	// $catalogsAsString = implode(",", $catalogs);
 	
-	saveUser($name, $email, $businessType, $businessName, $province, $localidad, $phone, $data["catalogs"]);
+	saveUser($name, $email, $businessType, $businessName, $province, $locality, $phone, $data["catalogs"]);
 	
 	foreach($catalogs as $key => $val) {
 		sendMail($name, $email, $catalogs[$key]);
