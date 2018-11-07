@@ -71,8 +71,8 @@ app.on('ready', async () => {
     show: false,
     frame: false,
     width: 1366,
-    height: 768
-    // kiosk: true
+    height: 768,
+    kiosk: true
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
