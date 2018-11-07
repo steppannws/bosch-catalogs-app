@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import { Spring } from 'react-spring';
 import Header from '../../components/header';
 import styles from './styles.css';
 import images from '../../static/images';
@@ -142,27 +143,34 @@ export default class CatalogsPage extends Component {
     const isSelected = selectedCatalogs.includes(index);
     // console.log(selectedCatalogs);
     return (
-      <div
-        className={styles.catalogItemWrapper}
-        onClick={() => this.selectCatalog(catalog.id)}
-      >
-        <img
-          src={catalog.path}
-          className={styles.catalogImage}
-          alt={catalog.name}
-        />
-        <div className={styles.catalogItemLine} />
-        <div className={styles.catalogTtemTitleWrapper}>
-          <span className={styles.catalogTtemTitle}>{catalog.name}</span>
-        </div>
-        <div
-          className={`${styles.catalogFavIconWrapper} ${isSelected &&
-            styles.catalogFavIconSelected}`}
+      <div onClick={() => this.selectCatalog(catalog.id)}>
+        <Spring
+          from={{ opacity: 0, marginTop: -10 }}
+          to={{ opacity: 1, marginTop: 0 }}
+          config={{ delay: index * 50, duration: 400 }}
         >
-          <span className={styles.catalogFavIcon}>
-            {isSelected ? '-' : '+'}
-          </span>
-        </div>
+          {props => (
+            <div style={props} className={styles.catalogItemWrapper}>
+              <img
+                src={catalog.path}
+                className={styles.catalogImage}
+                alt={catalog.name}
+              />
+              <div className={styles.catalogItemLine} />
+              <div className={styles.catalogTtemTitleWrapper}>
+                <span className={styles.catalogTtemTitle}>{catalog.name}</span>
+              </div>
+              <div
+                className={`${styles.catalogFavIconWrapper} ${isSelected &&
+                  styles.catalogFavIconSelected}`}
+              >
+                <span className={styles.catalogFavIcon}>
+                  {isSelected ? '-' : '+'}
+                </span>
+              </div>
+            </div>
+          )}
+        </Spring>
       </div>
     );
   };

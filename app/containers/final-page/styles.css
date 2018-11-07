@@ -40,12 +40,13 @@
   width: 100%;
   align-items: center;
   justify-content: flex-end;
-  bottom: 0;
+  bottom: 20px;
   margin-left: 20px;
   margin-bottom: 15px;
 }
 
 .logoWrapper {
+  margin-left: 30px;
 }
 
 .logo {
@@ -53,7 +54,7 @@
 }
 
 .buttonsWrapper {
-  margin-right: 40px;
+  margin-right: 60px;
   margin-bottom: 12px;
 }
 

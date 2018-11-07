@@ -45,7 +45,8 @@ export default class FormPage extends Component {
         province: 'Provincia',
         locality: 'Localidad',
         phone: 'Celular'
-      }
+      },
+      errorText: ''
     };
 
     this.spanishKeyboard = {
@@ -107,6 +108,43 @@ export default class FormPage extends Component {
       catalogs
     } = this.state;
 
+    if (name === '') {
+      this.setState({ errorText: 'Ingrese Nombre y Apellido' });
+      return;
+    }
+
+    if (email === '') {
+      this.setState({ errorText: 'Ingrese Mail' });
+      return;
+    }
+
+    if (businessType === '') {
+      this.setState({ errorText: 'Selecciona Tipo de Comercio' });
+      return;
+    }
+
+    if (businessName === '') {
+      this.setState({ errorText: 'Ingresa Razón Social' });
+      return;
+    }
+
+    if (province === '') {
+      this.setState({ errorText: 'Selecciona Provincia' });
+      return;
+    }
+
+    if (locality === '') {
+      this.setState({ errorText: 'Selecciona Localidad' });
+      return;
+    }
+
+    if (phone === '') {
+      this.setState({ errorText: 'Ingresa Celular' });
+      return;
+    }
+
+    this.setState({ errorText: '' });
+
     const formData = {
       email,
       name,
@@ -156,11 +194,14 @@ export default class FormPage extends Component {
 
     const inputWithKeyboard = (
       <div className={styles.keyboardWrapper}>
-        <div className={styles.keyboardInputTextWrapper}>
-          <span className={styles.keyboardInputText}>
-            {this.state[inputType] || this.state.inputPlaceholders[inputType]}
-          </span>
+        <div className={styles.keyboardInputTextContainer}>
+          <div className={styles.keyboardInputTextWrapper}>
+            <span className={styles.keyboardInputText}>
+              {this.state[inputType] || this.state.inputPlaceholders[inputType]}
+            </span>
+          </div>
         </div>
+
         <div className={styles.keyboard}>
           <Keyboard
             onChange={input => this.onChange(input)}
@@ -215,21 +256,25 @@ export default class FormPage extends Component {
 
     const inputWithLocalities = (
       <div className={styles.keyboardWrapper}>
-        <div className={styles.keyboardInputTextWrapper}>
-          <span className={styles.keyboardInputText}>
-            {this.state[inputType] || this.state.inputPlaceholders[inputType]}
-          </span>
+        <div className={styles.keyboardInputTextContainer}>
+          <div className={styles.keyboardInputTextWrapper}>
+            <span className={styles.keyboardInputText}>
+              {this.state[inputType] || this.state.inputPlaceholders[inputType]}
+            </span>
+          </div>
+
+          <div className={styles.selectableItemsWrapper}>
+            {this.state.localitiesResults.slice(0, 3).map(item => (
+              <div
+                className={styles.selectableItemTextWrapper}
+                onClick={() => this.handleItemSelect(inputType, item.name)}
+              >
+                <span className={styles.selectableItemText}>{item.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className={styles.selectableItemsWrapper}>
-          {this.state.localitiesResults.slice(0, 3).map(item => (
-            <div
-              className={styles.selectableItemTextWrapper}
-              onClick={() => this.handleItemSelect(inputType, item.name)}
-            >
-              <span className={styles.selectableItemText}>{item.name}</span>
-            </div>
-          ))}
-        </div>
+
         <div className={styles.keyboard}>
           <Keyboard
             onChange={input => this.onChange(input)}
@@ -275,7 +320,7 @@ export default class FormPage extends Component {
         <Header step={2} />
         <div className={styles.wrapper}>
           {showForm ? (
-            <div className={styles.formWrapper}>
+            <div className={`${styles.formWrapper} animated fadeIn`}>
               <div className={styles.leftColumn}>
                 <div
                   className={styles.inputWrapper}
@@ -359,7 +404,10 @@ export default class FormPage extends Component {
                     className={styles.arrowIcon}
                   />
                 </div>
-                <div className={styles.inputWrapper}>
+                <div
+                  className={styles.inputWrapper}
+                  onClick={() => this.handleInputClick('businessName')}
+                >
                   <span
                     className={
                       businessName === ''
@@ -372,7 +420,10 @@ export default class FormPage extends Component {
                       : businessName}
                   </span>
                 </div>
-                <div className={styles.inputWrapper}>
+                <div
+                  className={styles.inputWrapper}
+                  onClick={() => this.handleInputClick('phone')}
+                >
                   <span
                     className={
                       phone === ''
@@ -383,6 +434,9 @@ export default class FormPage extends Component {
                     {phone === '' ? inputPlaceholders.phone : phone}
                   </span>
                 </div>
+              </div>
+              <div className={styles.errorWrapper}>
+                <span className={styles.errorText}>{this.state.errorText}</span>
               </div>
             </div>
           ) : (

@@ -27,20 +27,26 @@ export default class FinalPage extends Component {
       <div className={styles.container}>
         <Header isSmall />
         <div className={styles.wrapper}>
-          <div className={styles.titleWprapper}>
+          <div className={`${styles.titleWprapper} animated fadeInLeft`}>
             <span className={styles.titleText}>Listo!</span>
             <span className={styles.titleText}>Se han enviado</span>
             <span className={styles.titleText}>los catálogos</span>
             <span className={styles.titleText}>a tu casilla de mail.</span>
           </div>
-          <span className={styles.subtitleText}>
-            Verificá tu conexión a Internet para poder
-          </span>
-          <span className={styles.subtitleText}>recibirlos correctamente.</span>
+          <div className={`animated fadeInDown delay-1s`}>
+            <span className={styles.subtitleText}>
+              Verificá tu conexión a Internet para poder
+            </span>
+            <br />
+            <span className={styles.subtitleText}>
+              recibirlos correctamente.
+            </span>
+          </div>
           <div className={styles.bottomWrapper}>
             <div className={styles.buttonsWrapper}>
               <Button
                 title="Terminar"
+                light
                 onClick={() => this.props.history.push('/')}
               />
             </div>

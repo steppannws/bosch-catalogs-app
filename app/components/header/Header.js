@@ -39,11 +39,8 @@ export default class Header extends Component {
             <div className={styles.indicatorsWrapper}>
               <div className={styles.indicator} />
               <div
-                className={
-                  this.props.setp === 1
-                    ? styles.inactiveIndicator
-                    : styles.indicator
-                }
+                className={`${styles.indicator} ${this.props.step === 1 &&
+                  styles.inactiveIndicator}`}
               />
             </div>
           </div>

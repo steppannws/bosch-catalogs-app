@@ -3,8 +3,13 @@ import styles from './styles.css';
 
 const Button = props => {
   return (
-    <div className={styles.container} onClick={props.onClick}>
-      <span className={styles.title}>{props.title}</span>
+    <div
+      className={`${props.light && styles.lightContainer} ${styles.container}`}
+      onClick={props.onClick}
+    >
+      <span className={`${styles.title} ${props.light && styles.lightTitle}`}>
+        {props.title}
+      </span>
     </div>
   );
 };

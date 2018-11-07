@@ -29,12 +29,13 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  bottom: 0;
+  bottom: 20px;
   margin-left: 20px;
   margin-bottom: 15px;
 }
 
 .logoWrapper {
+  margin-left: 30px;
 }
 
 .logo {
@@ -42,7 +43,7 @@
 }
 
 .buttonsWrapper {
-  margin-right: 40px;
+  margin-right: 60px;
   display: flex;
   flex-direction: row;
 }
@@ -50,23 +51,23 @@
 .catalogsWrapper {
   display: flex;
   flex-wrap: wrap;
-  padding: 30px;
-  margin-top: 140px;
+  padding: 25px;
+  margin-top: 60px;
 }
 
 .catalogItemWrapper {
   /* margin-bottom: 10px */
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-bottom: 20px;
+  margin-right: 8px;
+  margin-left: 8px;
+  margin-bottom: 10px;
 }
 
 .catalogImage {
-  width: 160px;
+  width: 130px;
 }
 
 .catalogItemLine {
-  width: 100px;
+  width: 80px;
   height: 1px;
   background-color: black;
   margin-top: 5px;
@@ -88,8 +89,8 @@
 
 .catalogFavIconWrapper {
   position: relative;
-  top: -50px;
-  left: 110px;
+  top: -40px;
+  left: 90px;
   width: 30px;
   height: 30px;
   border-radius: 50%;

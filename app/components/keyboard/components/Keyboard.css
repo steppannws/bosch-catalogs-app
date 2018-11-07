@@ -68,6 +68,6 @@ html {
 }
 
 .simple-keyboard.hg-theme-default .hg-button.hg-selectedButton {
-  background: rgba(5, 25, 70, 0.53);
+  /* background: rgba(5, 25, 70, 0.53); */
   color: white;
 }

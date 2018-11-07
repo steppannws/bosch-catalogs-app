@@ -7,9 +7,17 @@
   margin-right: 10px;
 }
 
+.lightContainer {
+  border: 1px solid #cccccc;
+}
+
 .title {
   text-align: center;
   font-size: 16px;
-  font-family: 'BoschSans Regular';
+  font-family: 'BoschSans Light';
   color: #6f6f6e;
+}
+
+.lightTitle {
+  color: #cccccc;
 }
