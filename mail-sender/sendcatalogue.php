@@ -103,7 +103,7 @@
 				break;
 			case '11':
 				$catalog = 'pdfs/bosch+diagnostics.pdf';
-				$subject = 'Bosch: Diagnosticos';
+				$subject = 'Bosch: Diagnostics';
 				break;
 			case '12':
 				$catalog = 'pdfs/bosch+bujias+de+inc.pdf';

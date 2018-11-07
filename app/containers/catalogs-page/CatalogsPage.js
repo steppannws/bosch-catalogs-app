@@ -81,7 +81,7 @@ const catalogsData = [
   },
   {
     id: 12,
-    name: 'Bujías Incandenscencia',
+    name: 'Bujías de Incandenscencia',
     path: './static/images/catalogs/12.jpg'
     // path: require('../../static/images/catalogs/12.jpg')
   },
