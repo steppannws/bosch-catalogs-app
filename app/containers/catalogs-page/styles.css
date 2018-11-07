@@ -51,16 +51,18 @@
   display: flex;
   flex-wrap: wrap;
   padding: 30px;
+  margin-top: 140px;
 }
 
 .catalogItemWrapper {
   /* margin-bottom: 10px */
   margin-right: 10px;
   margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 .catalogImage {
-  width: 150px;
+  width: 160px;
 }
 
 .catalogItemLine {
