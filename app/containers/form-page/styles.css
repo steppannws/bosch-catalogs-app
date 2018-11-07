@@ -136,10 +136,14 @@
 }
 
 .selectableProvinceWrapper {
+  position: relative;
   column-count: 3;
-  column-gap: 20px;
-  margin-right: 10%;
-  margin-left: 20%;
+  width: 55%;
+  margin-left: 28%;
+  /* column-gap: 20px; */
+  /* margin-right: 40%; */
+  /* padding-right: 40%; */
+  /* margin-left: 10%; */
 }
 
 .selectableItemsWrapper {
@@ -153,7 +157,7 @@
 }
 
 .selectableItemTextWrapper {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .selectableItemText {

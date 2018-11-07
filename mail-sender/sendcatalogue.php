@@ -23,11 +23,11 @@
 	$name = $data["name"];
 	$email = $data["email"];
 	$businessName = $data["businessName"];
+	$businessType = $data["businessType"];
 	$province = $data["province"];
 	$locality = $data["locality"];
 	$phone = $data["phone"];
 	$catalogs = explode(',', $data["catalogs"]);
-	$businessType = $data["businessType"];
 
 	/* 
 	$name = 'Javier';
@@ -41,7 +41,9 @@
 	$provincia = 'Buenos Aires';
 	$localidad = 'Palermo';
 	$catalogs = explode(',', "11,1,3");
- 	*/
+	 */
+	 
+	saveUser($name, $email, $businessType, $businessName, $province, $localidad, $phone, $catalog);
 
 	foreach($catalogs as $key => $val) {
 		sendMail($name, $email, $catalogs[$key]);
@@ -145,6 +147,18 @@
         }
 
 		// echo nl2br("Sending mail to: ".$email." with ".$catalog." catalog.\n");
+	}
+
+	function saveUser($name, $email, $businessType, $businessName, $province, $localidad, $phone, $catalog) {
+		$db = mysql_connect('localhost', 'gt000618_step', 'Stepan1234')
+		or die('Conection error: ' . mysql_error());
+		echo 'Connected successfully';
+		mysql_select_db('gt000618_step') or die('Error selecting db');
+
+		$entry = "INSERT INTO bosch (first_name, last_name, email) VALUES ('Peter', 'Parker', 'peterparker@mail.com')";
+		 
+		mysqli_query($db, $entry)
+		mysql_close($db);
 	}
 
 

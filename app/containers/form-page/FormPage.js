@@ -92,6 +92,16 @@ export default class FormPage extends Component {
     return [];
   };
 
+  isEmailValid = email => {
+    const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return reg.test(String(email).toLowerCase());
+  };
+
+  idPhoneValid = phone => {
+    const reg = /^\d+$/;
+    return reg.test(String(phone));
+  };
+
   handleSubmit = () => {
     // TODO: validate form
 
@@ -108,13 +118,23 @@ export default class FormPage extends Component {
       catalogs
     } = this.state;
 
+    if (!this.idPhoneValid(phone)) {
+      this.setState({ errorText: 'Nnúmero de Celular no valido' });
+      return;
+    }
+
     if (name === '') {
       this.setState({ errorText: 'Ingrese Nombre y Apellido' });
       return;
     }
 
-    if (email === '') {
+    if (!this.isEmailValid(email)) {
       this.setState({ errorText: 'Ingrese Mail' });
+      return;
+    }
+
+    if (email === '') {
+      this.setState({ errorText: 'No es una cuenta válida' });
       return;
     }
 
