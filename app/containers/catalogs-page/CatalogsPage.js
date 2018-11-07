@@ -6,7 +6,7 @@ import styles from './styles.css';
 import images from '../../static/images';
 import Button from '../../components/button';
 
-const catalogsImages = [
+const catalogsData = [
   {
     id: 0,
     name: 'Rotating Machines',
@@ -21,7 +21,7 @@ const catalogsImages = [
   },
   {
     id: 2,
-    name: 'Superprofecionales',
+    name: 'Superprofesionales',
     path: './static/images/catalogs/2.jpg'
     // path: require('../../static/images/catalogs/2.jpg')
   },
@@ -39,7 +39,7 @@ const catalogsImages = [
   },
   {
     id: 5,
-    name: 'Repustos de Motor',
+    name: 'Repuestos de Motos',
     path: './static/images/catalogs/5.jpg'
     // path: require('../../static/images/catalogs/5.jpg')
   },
@@ -51,7 +51,7 @@ const catalogsImages = [
   },
   {
     id: 7,
-    name: 'Kit de distribución',
+    name: 'Kits de Distribución',
     path: './static/images/catalogs/7.jpg'
     // path: require('../../static/images/catalogs/7.jpg')
   },
@@ -63,7 +63,7 @@ const catalogsImages = [
   },
   {
     id: 9,
-    name: 'Escobillos',
+    name: 'Escobillas',
     path: './static/images/catalogs/9.jpg'
     // path: require('../../static/images/catalogs/9.jpg')
   },
@@ -93,13 +93,13 @@ const catalogsImages = [
   },
   {
     id: 14,
-    name: 'Bombas de combustible',
+    name: 'Bombas de Combustible',
     path: './static/images/catalogs/14.jpg'
     // path: require('../../static/images/catalogs/14.jpg')
   },
   {
     id: 15,
-    name: 'Bobinas de encendio',
+    name: 'Bobinas de Encendido',
     path: './static/images/catalogs/15.jpg'
     // path: require('../../static/images/catalogs/15.jpg')
   },
@@ -122,13 +122,39 @@ export default class CatalogsPage extends Component {
     super(props);
 
     this.state = {
-      selectedCatalogs: []
+      selectedCatalogs: [],
+      errorMessage: ''
     };
+
+    catalogsData.reverse();
+
+    this.inactiveInterval;
   }
+
+  componentDidMount = () => {
+    this.startInactivityTimer();
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.inactiveInterval);
+  };
+
+  startInactivityTimer = () => {
+    clearInterval(this.inactiveInterval);
+    this.inactiveInterval = setInterval(this.resetApp, 5 * 60 * 1000);
+  };
+
+  resetApp = () => {
+    clearInterval(this.inactiveInterval);
+    this.props.history.push('/');
+  };
 
   selectCatalog = id => {
     const { selectedCatalogs } = this.state;
     const catalog = selectedCatalogs.indexOf(id);
+
+    this.startInactivityTimer();
+
     if (catalog === -1) {
       selectedCatalogs.push(id);
     } else {
@@ -138,9 +164,25 @@ export default class CatalogsPage extends Component {
     this.setState({ selectedCatalogs });
   };
 
+  handleNextStep = () => {
+    const { history } = this.props;
+    const { selectedCatalogs } = this.state;
+
+    this.startInactivityTimer();
+
+    if (selectedCatalogs.length === 0) {
+      this.setState({ errorMessage: 'Debes seleccionar al menos un catalogo' });
+      return;
+    }
+    history.push({
+      pathname: '/form',
+      state: { catalogs: selectedCatalogs }
+    });
+  };
+
   renderCatalogItem = (catalog, index) => {
     const { selectedCatalogs } = this.state;
-    const isSelected = selectedCatalogs.includes(index);
+    const isSelected = selectedCatalogs.includes(catalog.id);
     // console.log(selectedCatalogs);
     return (
       <div onClick={() => this.selectCatalog(catalog.id)}>
@@ -177,14 +219,17 @@ export default class CatalogsPage extends Component {
 
   render() {
     const { history } = this.props;
-    const { selectedCatalogs } = this.state;
 
     return (
       <div className={styles.container}>
         <Header step={1} />
         <div className={styles.wrapper}>
           <div className={styles.catalogsWrapper}>
-            {catalogsImages.map(this.renderCatalogItem)}
+            {catalogsData.map(this.renderCatalogItem)}
+          </div>
+
+          <div className={styles.errorWrapper}>
+            <span className={styles.errorText}>{this.state.errorMessage}</span>
           </div>
 
           <div className={styles.bottomWrapper}>
@@ -193,15 +238,7 @@ export default class CatalogsPage extends Component {
             </div>
             <div className={styles.buttonsWrapper}>
               <Button title="Anterior" onClick={() => history.push('/')} />
-              <Button
-                title="Siguiente"
-                onClick={() =>
-                  history.push({
-                    pathname: '/form',
-                    state: { catalogs: selectedCatalogs }
-                  })
-                }
-              />
+              <Button title="Siguiente" onClick={this.handleNextStep} />
             </div>
           </div>
         </div>

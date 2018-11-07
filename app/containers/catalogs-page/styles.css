@@ -110,3 +110,17 @@
   font-family: 'BoschSans Light';
   font-size: 20px;
 }
+
+.errorWrapper {
+  position: absolute;
+  bottom: 110px;
+  right: 55px;
+}
+
+.errorText {
+  font-size: 20px;
+  font-family: 'BoschSans Light';
+  color: red;
+  font-weight: 900;
+  text-align: right;
+}

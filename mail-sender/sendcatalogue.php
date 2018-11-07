@@ -58,7 +58,7 @@
 				break;
 			case '1':
 				$catalog = 'pdfs/bosch+tss.pdf';
-				$subject = 'Bosch: Catálogo Centro de camacitación';
+				$subject = 'Bosch: Catálogo Centro de capacitación';
 				break;
 			case '2':
 				$catalog = 'pdfs/bosch+superprofesionales.pdf';
@@ -155,7 +155,7 @@
 		echo 'Connected successfully';
 		mysql_select_db('gt000618_step') or die('Error selecting db');
 
-		$entry = "INSERT INTO bosch (first_name, last_name, email) VALUES ('Peter', 'Parker', 'peterparker@mail.com')";
+		$entry = "INSERT INTO bosch (name, last_name, email) VALUES ('Peter', 'Parker', 'peterparker@mail.com')";
 		 
 		mysqli_query($db, $entry)
 		mysql_close($db);

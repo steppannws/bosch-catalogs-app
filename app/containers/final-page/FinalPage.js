@@ -15,14 +15,28 @@ export default class FinalPage extends Component {
 
     this.state = {};
 
-    console.log(props);
+    this.inactiveInterval;
   }
 
+  componentDidMount = () => {
+    this.startInactivityTimer();
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.inactiveInterval);
+  };
+
+  startInactivityTimer = () => {
+    clearInterval(this.inactiveInterval);
+    this.inactiveInterval = setInterval(this.resetApp, 1 * 60 * 1000);
+  };
+
+  resetApp = () => {
+    clearInterval(this.inactiveInterval);
+    this.props.history.push('/');
+  };
+
   render() {
-    // const {
-
-    // } = this.state;
-
     return (
       <div className={styles.container}>
         <Header isSmall />

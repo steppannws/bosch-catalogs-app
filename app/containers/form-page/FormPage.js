@@ -75,9 +75,37 @@ export default class FormPage extends Component {
       'Lubricentro',
       'Otros'
     ];
+    this.inactiveInterval;
   }
 
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    this.startInactivityTimer();
+
+    this.setState({
+      name: 'Stepan Nikulenko',
+      email: 'steppannws@gmail.com',
+      businessType: 'Comercio',
+      businessName: 'Box',
+      province: 'Bs As',
+      locality: 'CABA',
+      phone: '1234567',
+      catalogs: [1, 2, 3]
+    });
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.inactiveInterval);
+  };
+
+  startInactivityTimer = () => {
+    clearInterval(this.inactiveInterval);
+    this.inactiveInterval = setInterval(this.resetApp, 5 * 60 * 1000);
+  };
+
+  resetApp = () => {
+    clearInterval(this.inactiveInterval);
+    this.props.history.push('/');
+  };
 
   searchLocalityName = searchWord => {
     const province = localities.find(
@@ -103,10 +131,6 @@ export default class FormPage extends Component {
   };
 
   handleSubmit = () => {
-    // TODO: validate form
-
-    console.log('SUBMIT');
-
     const {
       email,
       name,
@@ -118,10 +142,7 @@ export default class FormPage extends Component {
       catalogs
     } = this.state;
 
-    if (!this.idPhoneValid(phone)) {
-      this.setState({ errorText: 'Nnúmero de Celular no valido' });
-      return;
-    }
+    this.startInactivityTimer();
 
     if (name === '') {
       this.setState({ errorText: 'Ingrese Nombre y Apellido' });
@@ -163,6 +184,11 @@ export default class FormPage extends Component {
       return;
     }
 
+    if (!this.idPhoneValid(phone)) {
+      this.setState({ errorText: 'Nnúmero de Celular no valido' });
+      return;
+    }
+
     this.setState({ errorText: '' });
 
     const formData = {
@@ -185,10 +211,12 @@ export default class FormPage extends Component {
   };
 
   handleInputClick = inputType => {
+    this.startInactivityTimer();
     this.setState({ showForm: false, inputType });
   };
 
   handleItemSelect = (inputType, value) => {
+    this.startInactivityTimer();
     this.setState({ showForm: true, [inputType]: value });
   };
 
@@ -205,6 +233,7 @@ export default class FormPage extends Component {
   onKeyPress = button => {
     // console.log('Button pressed', button);
     if (button === '{enter}') {
+      this.startInactivityTimer();
       this.setState({ showForm: true });
     }
   };
