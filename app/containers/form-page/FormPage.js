@@ -81,16 +81,15 @@ export default class FormPage extends Component {
   componentDidMount = () => {
     this.startInactivityTimer();
 
-    this.setState({
-      name: 'Stepan Nikulenko',
-      email: 'steppannws@gmail.com',
-      businessType: 'Comercio',
-      businessName: 'Box',
-      province: 'Bs As',
-      locality: 'CABA',
-      phone: '1234567',
-      catalogs: [1, 2, 3]
-    });
+    // this.setState({
+    //   name: 'Stepan Nikulenko',
+    //   email: 'steppannws@gmail.com',
+    //   businessType: 'Comercio',
+    //   businessName: 'Box',
+    //   province: 'Bs As',
+    //   locality: 'CABA',
+    //   phone: '1234567'
+    // });
   };
 
   componentWillUnmount = () => {
